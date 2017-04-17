@@ -22,7 +22,7 @@ public class MyService extends Service {
         super.onCreate();
         message = "MyService onCreate()";
         Log.d(LOG_TAG, message);
-        executorService = Executors.newFixedThreadPool(1);
+        executorService = Executors.newFixedThreadPool(3);
         someRes = new Object();
     }
 
@@ -80,9 +80,8 @@ public class MyService extends Service {
         }
 
         private void stop() {
-            message = "MyRun#" + startId + " end, stopSelf(" + startId + ")";
+            message = "MyRun#" + startId + " end, stopSelfResult(" + startId + ") = " + stopSelfResult(startId);
             Log.d(LOG_TAG, message);
-            stopSelf(startId);
         }
     }
 }
